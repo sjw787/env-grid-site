@@ -1,0 +1,44 @@
+#GridHeader-container{
+  width: 100%;
+  background: #f2f2f2;
+}
+
+#Grid-controls{
+  display: block;
+  text-align: left;
+  padding: 20px;
+}
+
+#Grid-add-button{
+  height: 40px;
+  width: 200px;
+  border-radius: 3px;
+  border: 1px solid grey;
+  background: ghostwhite;
+  cursor: pointer;
+}
+
+#Grid-add-button:hover{
+  background: lightgray;
+}
+
+#Grid-add-button:focus{
+  outline: none;
+}
+
+.GridCell-content{
+  background: blue;
+  color: white;
+}
+
+.GridHeader-item{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  width: 25%;
+}
+
+.GH-item-border-right{
+  border-right: 1px solid #b3b3b3;
+  box-sizing: border-box;
+}

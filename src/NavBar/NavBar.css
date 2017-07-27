@@ -1,0 +1,29 @@
+#header{
+  background-color: #222;
+  color: white;
+  font-weight: bold;
+}
+
+#title{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+#time{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#Nav-logo{
+  text-align: center;
+  animation: Spinny infinite 10s linear;
+  display: inline-block;
+  height: 60px;
+}
+
+@keyframes Spinny {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
