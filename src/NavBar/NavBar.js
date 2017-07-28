@@ -8,14 +8,12 @@ class NavBar extends Component{
     console.log("props are mate - ", props);
   }
 
-
-
   render(){
     return(
       <div id="header">
         <div id="navItems">
           <span id="title">Welcome.com</span>
-          <img src={this.props.logo} id="Nav-logo"/>
+          <img src={this.props.logo} alt="logo" id="Nav-logo"/>
           <Clock id="time"/>
         </div>
       </div>

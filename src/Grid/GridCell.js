@@ -3,12 +3,12 @@ import React, {Component} from 'react'
 class GridCell extends Component{
   constructor(props){
     super(props)
-    console.log("Cell Props are", this.props);
+    console.log("cellProps",props);
   }
 
   render() {
     return (
-      <div id={this.props.item.name} className="GridCell-content">{this.props.item.name}</div>
+      <div id={this.props.item.name} className="GridCell-content">Item {this.props.index} of {this.props.itemsLength}: {this.props.item.name}</div>
     )
   }
 }
