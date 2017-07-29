@@ -27,9 +27,7 @@ class GridCell extends Component{
   }
 
   deleteCell(){
-    console.log("DELET THIS", this.props.index, this.props.parent.state.body[this.props.index]);
     this.props.parent.removeCell(this.props.index);
-
   }
 
   render() {

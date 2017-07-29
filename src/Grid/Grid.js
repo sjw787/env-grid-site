@@ -88,6 +88,7 @@ class Grid extends Component{
   removeCell(index){
     this.setState(function(prevState, props){
       let newBody = items
+      newBody.splice(index, 1)
       return {
         body: this.mapCells(newBody)
       };
