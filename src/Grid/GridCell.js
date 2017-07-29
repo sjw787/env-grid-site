@@ -26,9 +26,16 @@ class GridCell extends Component{
     }));
   }
 
+  deleteCell(){
+    console.log("DELET THIS", this.props.index, this.props.parent.state.body[this.props.index]);
+    this.props.parent.removeCell(this.props.index);
+
+  }
+
   render() {
     return (
       <div id={this.props.name} draggable="true" className="GridCell-content">
+        <i className="fa fa-trash-o" onClick={() => this.deleteCell()}>Delete</i>
         <span className="name">{this.props.name}</span>
         <span className="total">Total: {this.state.value}</span>
         <button className="addButton" onClick={() => this.addButton()}>+</button>

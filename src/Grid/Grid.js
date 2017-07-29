@@ -51,15 +51,19 @@ const items = [
 class Grid extends Component{
   constructor(props){
     super(props)
-    let cells = items.map((item, index) =>
-      <GridCell key={index} name={item.name } value={item.value} inc={item.inc} dec={item.dec}/>
-    )
-    this.state = {body: cells}
+    this.state = {body: this.mapCells(items)}
   }
 
   mapCells(items){
     return items.map((item, index) =>
-      <GridCell key={index} name={item.name } value={item.value} inc={item.inc} dec={item.dec}/>
+      <GridCell
+        key={index}
+        index={index}
+        name={item.name}
+        value={item.value}
+        inc={item.inc}
+        dec={item.dec}
+        parent={this}/>
     )
   }
 
@@ -67,7 +71,6 @@ class Grid extends Component{
     e.preventDefault();
     this.setState(function(prevState, props){
       let newBody = items;
-      console.log("newBody",newBody);
       newBody.push({
           name: "newItem",
           value: 5,
@@ -81,6 +84,16 @@ class Grid extends Component{
       };
     });
   }
+
+  removeCell(index){
+    this.setState(function(prevState, props){
+      let newBody = items
+      return {
+        body: this.mapCells(newBody)
+      };
+    });
+  }
+
 
   render(){
     console.log((this.state.body));
