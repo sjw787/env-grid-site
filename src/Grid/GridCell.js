@@ -3,8 +3,7 @@ import React, {Component} from 'react'
 class GridCell extends Component{
   constructor(props){
     super(props)
-    this.state = {value: props.value};
-    console.log("cellProps",this.state);
+    this.state = props;
   }
 
   componentDidMount() {

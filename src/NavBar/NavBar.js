@@ -3,11 +3,6 @@ import './NavBar.css'
 import Clock from '../Clock/Clock'
 
 class NavBar extends Component{
-  constructor(props){
-    super(props);
-    console.log("props are mate - ", props);
-  }
-
   render(){
     return(
       <div id="header">
