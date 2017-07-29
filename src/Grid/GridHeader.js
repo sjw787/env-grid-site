@@ -9,9 +9,9 @@ class GridHeader extends Component{
         </div>
         <div id="GridHeader-container">
           <div className="GridHeader-item GH-item-border-right">Queued</div>
-          <div className="GridHeader-item GH-item-border-right">QA-1</div>
-          <div className="GridHeader-item GH-item-border-right">QA-2</div>
-          <div className="GridHeader-item">QA-3</div>
+          <div className="GridHeader-item GH-item-border-right GH-item-border-left">QA-1</div>
+          <div className="GridHeader-item GH-item-border-right GH-item-border-left">QA-2</div>
+          <div className="GridHeader-item GH-item-border-left">QA-3</div>
         </div>
       </div>
     )

@@ -7,10 +7,14 @@
   display: block;
   text-align: left;
   padding: 20px;
+  background: #f2f2f2;
 }
 
 #Grid-content{
   padding-top: 5px;
+  background: #222;
+  width: 100%;
+  height: stretch;
 }
 
 #Grid-add-button{
@@ -31,9 +35,11 @@
 }
 
 .GridCell-content{
+  background: #f2f2f2;
   height: 200px;
   width: calc(25% - 22px);
   border: 1px solid black;
+  border-radius: 5px;
   display: inline-block;
   padding: 5px;
   margin: 5px;
@@ -74,10 +80,16 @@
   padding-top: 10px;
   padding-bottom: 10px;
   display: inline-block;
+  border-top: 10px solid #222;
   width: 25%;
 }
 
 .GH-item-border-right{
-  border-right: 1px solid #b3b3b3;
+  border-right: 5px solid #222;
+  box-sizing: border-box;
+}
+
+.GH-item-border-left{
+  border-left: 5px solid #222;
   box-sizing: border-box;
 }
