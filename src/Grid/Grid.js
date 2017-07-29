@@ -2,21 +2,6 @@ import './Grid.css'
 import React, { Component } from 'react';
 import GridHeader from './GridHeader'
 import GridCell from './GridCell'
-import createAbsoluteGrid from 'react-absolute-grid';
-
-const displayProps = {
-                    dragEnabled: true,
-                    responsive: true
-                  };
-
-const AbsGrid = createAbsoluteGrid(GridCell, displayProps);
-
-console.log("AbsGrid", AbsGrid);
-
-var sampleItems = [
- {key: 1, name: 'Test', sort: 0, filtered: 0},
- {key: 2, name: 'Test 1', sort: 1, filtered: 0},
-];
 
 class Grid extends Component{
 
@@ -24,7 +9,14 @@ class Grid extends Component{
     return (
       <div id="Grid-container">
         <GridHeader/>
-        <AbsGrid items={sampleItems}/>
+        <div id="Grid-content">
+          <GridCell name="Item 1" value={5} inc={1} dec={1}/>
+          <GridCell name="Item 2" value={5} inc={1} dec={1}/>
+          <GridCell name="Item 3" value={5} inc={1} dec={1}/>
+          <GridCell name="Item 4" value={5} inc={1} dec={1}/>
+          <GridCell name="Item 5" value={5} inc={1} dec={1}/>
+          <GridCell name="Item 6" value={5} inc={1} dec={1}/>
+        </div>
       </div>
     )
   }

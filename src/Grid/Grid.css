@@ -9,6 +9,10 @@
   padding: 20px;
 }
 
+#Grid-content{
+  padding-top: 5px;
+}
+
 #Grid-add-button{
   height: 40px;
   width: 200px;
@@ -27,8 +31,43 @@
 }
 
 .GridCell-content{
-  background: blue;
-  color: white;
+  height: 200px;
+  width: calc(25% - 22px);
+  border: 1px solid black;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+}
+
+.name{
+  display: block;
+}
+
+.total{
+  display: block;
+}
+
+.addButton, .subButton{
+  height: 40px;
+  width: calc(50% - 10px);
+  border-radius: 3px;
+  border: 1px solid grey;
+  background: ghostwhite;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.addButton:focus, .subButton:focus{
+  outline: none;
+}
+
+.addButton:active{
+  background: lightgreen;
+}
+
+.subButton:active{
+  background: #EF9797;
 }
 
 .GridHeader-item{

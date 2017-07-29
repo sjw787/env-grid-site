@@ -3,12 +3,42 @@ import React, {Component} from 'react'
 class GridCell extends Component{
   constructor(props){
     super(props)
-    console.log("cellProps",props);
+    this.state = {value: props.value};
+    console.log("cellProps",this.state);
+  }
+
+  componentDidMount() {
+    console.log("Mounted ;)");
+  }
+
+  componentWillUnmount() {
+    console.log("Unmounted ;)))");
+  }
+
+  addButton(){
+    this.setState(function(prevState, props) {
+      return {
+        value: (prevState.value + props.inc)
+      }
+    });
+  }
+
+  subButton(){
+    this.setState(function(prevState, props) {
+      return {
+        value: (prevState.value - props.dec)
+      }
+    });
   }
 
   render() {
     return (
-      <div id={this.props.item.name} className="GridCell-content">Item {this.props.index} of {this.props.itemsLength}: {this.props.item.name}</div>
+      <div id={this.props.name} draggable="true" className="GridCell-content">
+        <span className="name">{this.props.name}</span>
+        <span className="total">Total:{this.state.value}</span>
+        <button className="addButton" onClick={this.addButton.bind(this)}>+</button>
+        <button className="subButton" onClick={this.subButton.bind(this)}>-</button>
+      </div>
     )
   }
 }
