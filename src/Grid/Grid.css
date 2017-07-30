@@ -41,6 +41,7 @@
   width: calc(25% - 22px);
   border: 1px solid black;
   border-radius: 5px;
+  text-align: left;
   display: inline-block;
   padding: 5px;
   margin: 5px;
@@ -48,11 +49,15 @@
 }
 
 .name{
-  display: block;
+  display: inline-block;
 }
 
 .total{
   display: block;
+}
+
+.name, .total{
+  display:
 }
 
 .addButton, .subButton{
@@ -95,7 +100,58 @@
   box-sizing: border-box;
 }
 
-i{
-  height:5px;
-  width:5px;
+.GridCell-icon{
+  float: right;
+  cursor: pointer;
+}
+
+.GridCell-icon:hover{
+  color: red;
+}
+
+#Grid-form-container{
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 200;
+  position: fixed;
+}
+
+#Grid-form-content{
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  background: white;
+  color: black;
+  z-index: 300;
+  left: 0;
+  right: 0;
+  border: 2px solid #222;
+  border-radius: 3px;
+  margin: 10% auto;
+}
+#Form-inputs{
+  text-align: left;
+  margin: 5px 0 0 10px;
+}
+
+#Form-title, #Form-desc{
+  display: block;
+  margin-top: 10px;
+}
+
+#Form-cell-title, #Form-cell-desc{
+  margin-right: 5px;
+}
+
+#Grid-form-input, #Form-desc-input{
+  right: 10px;
+}
+
+#Grid-form-input, #Form-cell-title, #Form-cell-desc, #Form-desc-input{
+  display: inline-block;
+}
+
+#Grid-ok-button, #Grid-cancel-button{
+  display: inline-block;
 }

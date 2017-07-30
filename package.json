@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "react": "^15.6.1",
     "react-absolute-grid": "^3.0.0",
     "react-dom": "^15.6.1",
+    "react-fontawesome": "^1.6.1",
     "react-grid-layout": "^0.14.7",
     "react-scripts": "1.0.10"
   },

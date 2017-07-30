@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import 'font-awesome/css/font-awesome.css'
 
 class GridCell extends Component{
   constructor(props){
@@ -33,9 +34,11 @@ class GridCell extends Component{
   render() {
     return (
       <div id={this.props.name} draggable="true" className="GridCell-content">
-        <i className="fa fa-trash-o" onClick={() => this.deleteCell()}>Delete</i>
         <span className="name">{this.props.name}</span>
+        <i className='GridCell-icon fa fa-trash-o' onClick={() => this.deleteCell()}></i>
         <span className="total">Total: {this.state.value}</span>
+        <span className="name">Description: </span>
+        <p>{this.props.desc}</p>
         <button className="addButton" onClick={() => this.addButton()}>+</button>
         <button className="subButton" onClick={() => this.subButton()}>-</button>
       </div>
