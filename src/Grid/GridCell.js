@@ -4,31 +4,27 @@ import 'font-awesome/css/font-awesome.css'
 class GridCell extends Component{
   constructor(props){
     super(props)
-    this.state = props;
+    this.state = props
   }
 
-  componentDidMount() {
-    console.log("Mounted ;)");
-  }
+  componentDidMount() {}
 
-  componentWillUnmount() {
-    console.log("Unmounted ;)))");
-  }
+  componentWillUnmount() {}
 
   addButton(){
     this.setState((prevState, props) => ({
       value: (prevState.value + props.inc)
-    }));
+    }))
   }
 
   subButton(){
     this.setState((prevState, props) => ({
       value: (prevState.value - props.dec)
-    }));
+    }))
   }
 
   deleteCell(){
-    this.props.parent.removeCell(this.props.index);
+    this.props.parent.removeCell(this.props.index)
   }
 
   render() {

@@ -1,13 +1,13 @@
 import './Grid.css'
 import React, { Component } from 'react'
 import GridCell from './GridCell'
-const items = [
-  {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
-  {name: "Item 2", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 2},
-  {name: "Item 3", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 3},
-  {name: "Item 4", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 4},
-  {name: "Item 5", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 5},
-  {name: "Item 6", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 6}
+const items = [ // Mock Data to render a bunch of items
+  // {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
+  // {name: "Item 2", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 2},
+  // {name: "Item 3", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 3},
+  // {name: "Item 4", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 4},
+  // {name: "Item 5", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 5},
+  // {name: "Item 6", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 6}
 ]
 
 class Grid extends Component{
@@ -46,8 +46,6 @@ class Grid extends Component{
         body: this.mapCells(newBody)
       }
     })
-
-    this.setState(() => ({title: "", desc: ""}))
   }
 
   removeCell(index){
@@ -56,29 +54,32 @@ class Grid extends Component{
       newBody.splice(index, 1)
       return {
         body: this.mapCells(newBody)
-      };
-    });
+      }
+    })
   }
 
   hideForm(){
     this.setState((prevState, props) => ({
       form: <div></div>
-    }));
+    }))
+
+    this.setState(() => ({title: "", desc: ""}))
+
   }
 
   updateItems(){
-    this.addCell();
-    this.hideForm();
+    this.addCell()
+    this.hideForm()
   }
 
   titleInputChange(e){
-    this.setState({title: e.target.value});
-    console.log(this.state);
+    this.setState({title: e.target.value})
+    console.log(this.state)
   }
 
   descInputChange(e){
-    this.setState({desc: e.target.value});
-    console.log(this.state);
+    this.setState({desc: e.target.value})
+    console.log(this.state)
   }
 
   showForm(){
@@ -100,7 +101,7 @@ class Grid extends Component{
                 <button id="Grid-cancel-button" onClick={() => this.hideForm()}>Cancel</button>
               </div>
              </div>)
-    }));
+    }))
   }
 
   render(){
@@ -127,4 +128,4 @@ class Grid extends Component{
     )
   }
 }
-export default Grid;
+export default Grid

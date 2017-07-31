@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './NavBar.css'
 import Clock from '../Clock/Clock'
 
