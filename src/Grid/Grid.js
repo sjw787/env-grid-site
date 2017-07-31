@@ -2,12 +2,12 @@ import './Grid.css'
 import React, { Component } from 'react'
 import GridCell from './GridCell'
 const items = [ // Mock Data to render a bunch of items
-  // {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
-  // {name: "Item 2", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 2},
-  // {name: "Item 3", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 3},
-  // {name: "Item 4", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 4},
-  // {name: "Item 5", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 5},
-  // {name: "Item 6", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 6}
+  {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
+  {name: "Item 2", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 2},
+  {name: "Item 3", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 3},
+  {name: "Item 4", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 4},
+  {name: "Item 5", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 5},
+  {name: "Item 6", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 6}
 ]
 
 class Grid extends Component{
@@ -20,12 +20,8 @@ class Grid extends Component{
     return items.map((item, index) =>
       <GridCell
         key={index}
-        index={index}
         name={item.name}
         desc={item.desc}
-        value={item.value}
-        inc={item.inc}
-        dec={item.dec}
         parent={this}/>
     )
   }
@@ -33,13 +29,12 @@ class Grid extends Component{
   addCell(){
     this.setState(function(prevState, props){
       let newBody = items
+      let length = newBody.length
       newBody.push({
           name: this.state.title || "Default Title",
           desc: this.state.desc || "Lorem Ipsum",
-          value: 5,
-          inc: 1,
-          dec: 1,
-          key: 6
+          key: {length}
+
       });
 
       return {
