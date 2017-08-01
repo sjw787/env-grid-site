@@ -1,19 +1,34 @@
 import './Grid.css'
 import React, { Component } from 'react'
 import GridCell from './GridCell'
+import axios from 'axios'
 const items = [ // Mock Data to render a bunch of items
-  {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
-  {name: "Item 2", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 2},
-  {name: "Item 3", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 3},
-  {name: "Item 4", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 4},
-  {name: "Item 5", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 5},
-  {name: "Item 6", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 6}
+  // {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
+  // {name: "Item 2", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 2},
+  // {name: "Item 3", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 3},
+  // {name: "Item 4", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 4},
+  // {name: "Item 5", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 5},
+  // {name: "Item 6", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 6}
 ]
 
 class Grid extends Component{
   constructor(props){
     super(props)
     this.state = {body: this.mapCells(items)}
+  }
+
+  componentDidMount() {
+    this.fetchCells()
+  }
+
+  fetchCells(){
+    axios.get('http://192.168.1.69:3001/getList').then(res => {
+      let response = res.data
+      console.log("res", response);
+      if (response) {
+        this.setState({body: this.mapCells(response)})
+      }
+    })
   }
 
   mapCells(items){
@@ -26,20 +41,48 @@ class Grid extends Component{
     )
   }
 
+  filterCircular(value) {
+    var newArr = []
+
+    for(let i = 0; i < value.length; i++){
+      var newObj = {}
+      var keys = Object.keys(value[i])
+      keys.forEach(function(item){
+        if(item !== 'parent'){
+          newObj[item] = value[i][item]
+        }
+      })
+      newArr.push(newObj)
+    }
+    return newArr
+  }
+
   addCell(){
+    let {body} = this.state
+
     this.setState(function(prevState, props){
-      let newBody = items
+      let newBody = body
       let length = newBody.length
       newBody.push({
           name: this.state.title || "Default Title",
           desc: this.state.desc || "Lorem Ipsum",
           key: {length}
-
       });
 
       return {
         body: this.mapCells(newBody)
       }
+    })
+    console.log("body", body);
+    let bodyContents = []
+    body.forEach(function(item){
+      bodyContents.push(item.props)
+    })
+
+    bodyContents = this.filterCircular(bodyContents)
+    let uriState = encodeURIComponent(JSON.stringify(bodyContents))
+    axios.post('http://192.168.1.69:3001/updateList/' + uriState).then(res => {
+      console.log("res", res);
     })
   }
 
@@ -57,9 +100,7 @@ class Grid extends Component{
     this.setState((prevState, props) => ({
       form: <div></div>
     }))
-
     this.setState(() => ({title: "", desc: ""}))
-
   }
 
   updateItems(){
@@ -75,6 +116,7 @@ class Grid extends Component{
   descInputChange(e){
     this.setState({desc: e.target.value})
     console.log(this.state)
+
   }
 
   showForm(){
