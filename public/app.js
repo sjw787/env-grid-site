@@ -15,9 +15,9 @@ const items = [ // Mock Data to render a bunch of items
 ]
 
 
-client.on('connect', function() {
-    console.log('connected');
-});
+// client.on('connect', function() {
+//     console.log('connected');
+// });
 
 
 app.get('/', function (req, res) {
