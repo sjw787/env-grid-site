@@ -18,16 +18,17 @@ class Grid extends Component{
   }
 
   componentDidMount() {
-    this.fetchCells()
+    this.fetchCells(true)
   }
 
-  fetchCells(){
-    axios.get('http://192.168.1.69:3001/getList').then(res => {
+  fetchCells(setState){
+    axios.get('http://192.168.1.69:3001/getList').then((res) => {
       let response = res.data
       console.log("res", response);
-      if (response) {
+      if (setState && response) {
         this.setState({body: this.mapCells(response)})
       }
+      return response
     })
   }
 
@@ -73,12 +74,14 @@ class Grid extends Component{
         body: this.mapCells(newBody)
       }
     })
-    console.log("body", body);
+
+    let body2 = body
+    console.log("body", body2);
     let bodyContents = []
-    body.forEach(function(item){
+    body2.forEach(function(item){
       bodyContents.push(item.props)
     })
-
+    console.log("fetchCells", this.fetchCells());
     bodyContents = this.filterCircular(bodyContents)
     let uriState = encodeURIComponent(JSON.stringify(bodyContents))
     axios.post('http://192.168.1.69:3001/updateList/' + uriState).then(res => {
