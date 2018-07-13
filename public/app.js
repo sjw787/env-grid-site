@@ -2,8 +2,8 @@ const express = require('express')
 // var redis = require('redis')
 // var client = redis.createClient() //creates a new client
 
-const app = express()
-const port = 80
+const app = express();
+const port = 3000;
 
 const items = [ // Mock Data to render a bunch of items
   {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
@@ -12,7 +12,7 @@ const items = [ // Mock Data to render a bunch of items
   {name: "Item 4", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 4},
   {name: "Item 5", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 5},
   {name: "Item 6", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 6}
-]
+];
 
 
 // client.on('connect', function() {
@@ -22,7 +22,7 @@ const items = [ // Mock Data to render a bunch of items
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
-})
+});
 
 app.get('/populate', function(req, res){
   // client.set('list', JSON.stringify(items), function(err, response){
@@ -32,7 +32,7 @@ app.get('/populate', function(req, res){
   //   // })
   //   res.status(200).send(response)
   // })
-})
+});
 
 app.get('/getList', function(req, res){
   // client.get('list', function(err, response){
@@ -42,7 +42,7 @@ app.get('/getList', function(req, res){
   //   })
   //   res.status(200).send(response)
   // })
-})
+});
 
 app.post('/updateList/:list', function(req, res){
   // let list = decodeURIComponent(req.params.list)
@@ -55,7 +55,7 @@ app.post('/updateList/:list', function(req, res){
   //   })
   //   res.status(200).send(response)
   // })
-})
+});
 
 // app.use('/api', function(req, res){
 //   res.send("hai")
@@ -63,4 +63,4 @@ app.post('/updateList/:list', function(req, res){
 
 app.listen(port, function () {
   console.log('Example app listening on port 3001!')
-})
+});
