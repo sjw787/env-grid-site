@@ -3,7 +3,7 @@ const express = require('express')
 // var client = redis.createClient() //creates a new client
 
 const app = express();
-const port = 3000;
+const port = 80;
 
 const items = [ // Mock Data to render a bunch of items
   {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
