@@ -1,9 +1,9 @@
-const express = require('express')
+const express = require('express');
 // var redis = require('redis')
 // var client = redis.createClient() //creates a new client
 
 const app = express();
-const port = 80;
+const port = process.env.PORT || 80;
 
 const items = [ // Mock Data to render a bunch of items
   {name: "Item 1", value: 5, desc: "Lorem-Ipsum", inc: 1, dec: 1, key: 1},
@@ -61,6 +61,6 @@ app.post('/updateList/:list', function(req, res){
 //   res.send("hai")
 // })
 
-app.listen(port, function () {
-  console.log('Example app listening on port 3001!')
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 });
