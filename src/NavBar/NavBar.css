@@ -5,10 +5,13 @@
 }
 
 #title{
-  color: white;
   position: absolute;
   left: 20px;
   top: 20px;
+}
+
+a:visited{
+  color: white;
 }
 
 #time{
