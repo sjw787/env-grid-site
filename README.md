@@ -7,4 +7,4 @@ Some of the tech that I am using this project to learn are React.js, AWS, Redux,
 
 ## Progress
 
-Please take a look at the "Projects" tab for this repo to see which features are coming soon!
+Please take a look at the "Projects" tab for this repo to see which features, fixes and improvements are coming soon!
