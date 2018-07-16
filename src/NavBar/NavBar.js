@@ -7,7 +7,7 @@ class NavBar extends Component{
     return(
       <div id="header">
         <div id="navItems">
-          <span id="title">Welcome.com</span>
+          <span id="title"><a href="">View on Github</a></span>
           <img src={this.props.logo} alt="logo" id="Nav-logo"/>
           <Clock id="time"/>
         </div>

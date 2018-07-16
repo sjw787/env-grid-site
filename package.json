@@ -17,7 +17,7 @@
     "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start > logs.txt & node public/app.js",
+    "start": "react-scripts start > logs.txt",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
