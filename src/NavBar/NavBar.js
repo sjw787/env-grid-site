@@ -7,7 +7,7 @@ class NavBar extends Component{
     return(
       <div id="header">
         <div id="navItems">
-          <span id="title"><a href="https://github.com/sjw787/env-grid-site">View on Github</a></span>
+          <span id="title"><a class="github-link" href="https://github.com/sjw787/env-grid-site">View on Github</a></span>
           <img src={this.props.logo} alt="logo" id="Nav-logo"/>
           <Clock id="time"/>
         </div>
